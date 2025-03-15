@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChampionshipManager {
@@ -10,6 +11,8 @@ public class ChampionshipManager {
     private static int totalRaces;
 
     private ChampionshipManager() {
+        drivers = new ArrayList<>();
+        races = new ArrayList<>();
     }
 
     public static ChampionshipManager getInstance() {
@@ -49,5 +52,8 @@ public class ChampionshipManager {
     }
     public static int getTotalRaces() {
         return totalRaces;
+    }
+    public static int getTotalDrivers() {
+        return totalDrivers;
     }
 }

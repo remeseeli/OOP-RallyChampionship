@@ -9,7 +9,7 @@ public class ChampionshipStatistics {
         for (Driver driver : drivers) {
             totalPoints += driver.getPoints();
         }
-        return totalPoints / drivers.size();
+        return Math.round(totalPoints / drivers.size());
     }
 
     public static String findMostSuccessfulCountry(List<Driver> drivers) {
@@ -26,6 +26,9 @@ public class ChampionshipStatistics {
 
     public static int getTotalRacesHeld() {
         return ChampionshipManager.getTotalRaces();
+    }
+    public static int getTotalDriversRegistered() {
+        return ChampionshipManager.getTotalDrivers();
     }
 
 }

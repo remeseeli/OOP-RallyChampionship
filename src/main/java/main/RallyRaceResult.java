@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ public class RallyRaceResult implements RaceResult {
     public RallyRaceResult(String raceName, String location) {
         this.raceName = raceName;
         this.location = location;
+        this.results = new HashMap<>();
     }
 
     public String getLocation() {
@@ -26,6 +28,7 @@ public class RallyRaceResult implements RaceResult {
     @Override
     public void recordResult(Driver driver, int position, int points) {
         results.put(driver, points);
+        driver.addPoints(points);
     }
     @Override
     public int getDriverPoints(Driver driver) {
