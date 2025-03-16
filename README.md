@@ -41,6 +41,7 @@ Position 5: Takeshi Nakazato (Japan) - 10 points
 
 Position 6: Sean Boswell (USA) - 8 points
 
+
 Race: Rally Japan (Nagoya)
 
 Position 1: Smokey Nagata (Japan) - 25 points
