@@ -58,6 +58,6 @@ Position 6: Colin McRae (UK) - 8 points
 
 ===== CAR PERFORMANCE RATINGS =====
 
-Gravel Car Performance: 144
+Gravel Car Performance: 577
 
-Asphalt Car Performance: 4537
+Asphalt Car Performance: 454
