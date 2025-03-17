@@ -17,6 +17,6 @@ public class GravelCar extends RallyCar {
     @Override
     public double calculatePerformance() {
         // FORMULA BY CHATGPT, NO CLEAR FORMULA
-        return getHorsepower() * Math.sqrt(suspensionTravel);
+        return (getHorsepower() * Math.sqrt(suspensionTravel)) * 4;
     }
 }

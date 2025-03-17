@@ -17,6 +17,6 @@ public class AsphaltCar extends RallyCar {
     @Override
     public double calculatePerformance() {
         // FORMULA BY CHATGPT, NO CLEAR FORMULA
-        return getHorsepower() * Math.sqrt(downforce);
+        return (getHorsepower() * Math.sqrt(downforce)) / 10;
     }
 }
