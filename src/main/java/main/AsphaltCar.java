@@ -9,7 +9,7 @@ public class AsphaltCar extends RallyCar {
         super(make, model, horsepower);
         this.downforce = downforce;
     }
-
+    // GETTER FOR DOWNFORCE
     public double getDownforce() {
         return downforce;
     }
