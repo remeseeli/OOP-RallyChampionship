@@ -2,6 +2,7 @@ package main;
 
 public class AsphaltCar extends RallyCar {
 
+    // AsphaltCar specific variable
     private double downforce;
 
     // CONSTRUCTOR
@@ -16,7 +17,7 @@ public class AsphaltCar extends RallyCar {
     // OVERRIDING THE ABSTRACT METHOD
     @Override
     public double calculatePerformance() {
-        // FORMULA BY CHATGPT, NO CLEAR FORMULA
+        // FORMULA MADE UP BY ME
         return (getHorsepower() * Math.sqrt(downforce)) / 10;
     }
 }

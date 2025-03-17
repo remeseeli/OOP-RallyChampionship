@@ -38,8 +38,10 @@ public class RallyChampionship
         csmanager.registerDriver(boswell);
 
         // SIMULATE RACE 1 - GRAVEL RACE IN JYVÄSKYLÄ (TARMAC DRIVERS AT DISADVANTAGE SINCE THEY HAVE TARMAC CARS)
+        // Add race to championship manager
         RallyRaceResult race1 = new RallyRaceResult("Rally Finland", "Jyväskylä");
         csmanager.addRaceResult(race1);
+        // Record driver's scores
         race1.recordResult(mcrae , 1 ,25);
         race1.recordResult(gronholm, 2, 18);
         race1.recordResult(makinen, 3, 15);
@@ -47,14 +49,16 @@ public class RallyChampionship
         race1.recordResult(nakazato, 5, 10);
         race1.recordResult(boswell, 6, 8);
 
-        // SWITCH CARS FOR RACE 2 (GRAVEL DRIVERS CHANGE TO TARMAC CARS)
+        // SWITCH CARS FOR RACE 2 (GRAVEL DRIVERS CHANGE TO NEW TARMAC CARS)
         mcrae.setCar(new AsphaltCar("Toyota", "Celica", 280, 225.0));
         gronholm.setCar(new AsphaltCar("Toyota", "GR Yaris", 290, 200.0));
         makinen.setCar(new AsphaltCar("Porsche", "911 R-GT", 320, 250.0));
 
         // SIMULATE RACE 2 - TARMAC RACE IN NAGOYA
+        // Add new race to championship manager
         RallyRaceResult race2 = new RallyRaceResult("Rally Japan", "Nagoya");
         csmanager.addRaceResult(race2);
+        // Record driver's scores
         race2.recordResult(nagata, 1, 25);
         race2.recordResult(boswell, 2, 18);
         race2.recordResult(nakazato, 3, 15);
@@ -65,32 +69,48 @@ public class RallyChampionship
 
         System.out.println("===== RALLY CHAMPIONSHIP STANDINGS =====");
         // PRINT STANDINGS BY POSITION
+        // Initialize position for incrementing
         int position = 1;
+        // Loop through drivers and print standings, incrementing position
         for (Driver driver : csmanager.getDriverStandings()) {
             System.out.println(position + ". " + driver.getName() + " (" + driver.getCountry() + "): " + driver.getPoints() + " points");
             position++;
         }
 
+        // Linebreak for clarity
         System.out.println();
 
+        // PRINT CHAMPIONSHIP LEADER
+        // Get leading driver from championship manager and print
         System.out.println("===== CHAMPIONSHIP LEADER =====");
         System.out.println(ChampionshipManager.getLeadingDriver().getName() + " with " + ChampionshipManager.getLeadingDriver().getPoints() + " points");
 
+        // Linebreak for clarity
         System.out.println();
 
+        // PRINT CHAMPIONSHIP STATISTICS
         System.out.println("===== CHAMPIONSHIP STATISTICS =====");
+        // Get total drivers from ChampionshipManager
         System.out.println("Total Drivers: " + ChampionshipStatistics.getTotalDriversRegistered());
+        // Get total races held from Championshipmanager and print
         System.out.println("Total Races: " + ChampionshipStatistics.getTotalRacesHeld());
+        // Print average points per driver
         System.out.println("Average Points Per Driver: " + ChampionshipStatistics.calculateAveragePointsPerDriver(csmanager.getDriverStandings()));
+        // Print most successful country from driver standings
         System.out.println("Most Successful Country: " + ChampionshipStatistics.findMostSuccessfulCountry(csmanager.getDriverStandings()));
+        // Print total championship points from ChampionshipManager
         System.out.println("Total Championship Points: " + ChampionshipManager.getTotalChampionShipPoints());
 
+        // Linebreak for clarity
         System.out.println();
 
-        System.out.println("===== RACE RESULTS =====");
-        // RACE RESULT SORTING ASSISTANCE BY COPILOT 
+        // PRINT RACE 1 RESULTS
+        System.out.println("===== RACE RESULTS ====="); 
         System.out.println("Race: " + race1.getRaceName() + " (" + race1.getLocation() + ")");
+        // Reset position to 1 for incrementing (as it was used previously)
         position = 1;
+        // SORTING ASSISTANCE BY COPILOT
+        // Print standings 
         List<Driver> race1Results = race1.getResults();
         race1Results.sort((d1, d2) -> race1.getDriverPoints(d2) - race1.getDriverPoints(d1));
         for (Driver driver : race1Results) {
@@ -98,10 +118,15 @@ public class RallyChampionship
             position++;
         }
 
+        // Linebreak for clarity
         System.out.println();
 
+        // PRINT RACE 2 RESULTS
         System.out.println("Race: " + race2.getRaceName() + " (" + race2.getLocation() + ")");
+        // Reset position to 1 for incrementing (as it was used previously)
         position = 1;
+        // SORTING ASSISTANCE BY COPILOT
+        // Print standings
         List<Driver> race2Results = race2.getResults();
         race2Results.sort((d1, d2) -> race2.getDriverPoints(d2) - race2.getDriverPoints(d1));
         for (Driver driver : race2Results) {
@@ -113,13 +138,17 @@ public class RallyChampionship
         mcrae.setCar(impreza);
         gronholm.setCar(peugeot206);
         makinen.setCar(lancerevo);
+        // Linebreak for clarity
         System.out.println();
-
+        // PRINT RATINGS FOR CAR PERFORMANCE
         System.out.println("===== CAR PERFORMANCE RATINGS =====");
+        // Initialize total performance variables
         double totalgravelperformance = 0;
         double totaltarmacperformance = 0;
+        // Initialize total car count variables
         int totalgravelcars = 0;
         int totaltarmaccars = 0;
+        // Loop through drivers and calculate total performance for each car type
         for (Driver driver : csmanager.getDriverStandings()) {
             if (driver.getCar() instanceof GravelCar) {
                 totalgravelperformance += driver.getCar().calculatePerformance();
@@ -130,6 +159,7 @@ public class RallyChampionship
                 totaltarmaccars++;
             }
         }
+        // Print out average performance for each car type
         System.out.println("Gravel Car Performance: " + Math.round(totalgravelperformance / totalgravelcars));
         System.out.println("Asphalt Car Performance: " + Math.round(totaltarmacperformance / totaltarmaccars));
     }

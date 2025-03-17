@@ -2,6 +2,7 @@ package main;
 
 public class GravelCar extends RallyCar {
 
+    // GravelCar specific variable
     private double suspensionTravel;
 
     // CONSTRUCTOR
@@ -10,13 +11,14 @@ public class GravelCar extends RallyCar {
         this.suspensionTravel = suspensionTravel;
     }
 
+    // Get suspension travel
     public double getSuspensionTravel() {
         return suspensionTravel;
     }
     // OVERRIDING THE ABSTRACT METHOD
     @Override
     public double calculatePerformance() {
-        // FORMULA BY CHATGPT, NO CLEAR FORMULA
+        // FORMULA WAS MADE UP BY ME
         return (getHorsepower() * Math.sqrt(suspensionTravel)) * 4;
     }
 }
